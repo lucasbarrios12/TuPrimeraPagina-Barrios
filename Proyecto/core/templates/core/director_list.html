@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <table class="table table-striped-columns w-25 p-3 ">
+            <thead>
+                <th>Nombre</th>
+                <th>País</th>
+            </thead>
+            <tbody>
+                {% for director in directores %}
+                    <tr>
+                        <td>{{ director.nombre }}</td>
+                        <td>{{ director.pais }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        
+        </table>
+    </div>
+
+
+{% endblock contenido %}

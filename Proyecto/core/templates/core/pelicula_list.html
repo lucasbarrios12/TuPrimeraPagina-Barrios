@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <table class="table table-striped-columns w-25 p-3 ">
+            <thead>
+                <th>Nombre</th>
+                <th>Personaje</th>
+                <th>Protagonista</th>
+                <th>Director</th>
+            </thead>
+            <tbody>
+                {% for pelicula in peliculas %}
+                    <tr>
+                        <td>{{ pelicula.nombre }}</td>
+                        <td>{{ pelicula.año }}</td>
+                        <td>{{ pelicula.protagonista }}</td>
+                        <td>{{ pelicula.director }}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        
+        </table>
+    </div>
+
+
+{% endblock contenido %}
