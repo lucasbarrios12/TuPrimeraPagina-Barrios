@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+    <form method="post">
+        {% csrf_token %}
+        <h2>¿Estas seguro de eliminar {{ object.nombre }}</h2>
+        <button type="submit">Confirmar</button>
+
+    </form>
+
+
+{% endblock contenido %}

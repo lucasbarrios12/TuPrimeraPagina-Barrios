@@ -5,17 +5,22 @@
         <table class="table table-striped-columns w-25 p-3 ">
             <thead>
                 <th>Nombre</th>
-                <th>Personaje</th>
+                <th>Año</th>
                 <th>Protagonista</th>
                 <th>Director</th>
             </thead>
             <tbody>
-                {% for pelicula in peliculas %}
+                {% for pelicula in object_list %}
                     <tr>
                         <td>{{ pelicula.nombre }}</td>
                         <td>{{ pelicula.año }}</td>
                         <td>{{ pelicula.protagonista }}</td>
                         <td>{{ pelicula.director }}</td>
+                        {% if user.is_authenticated%}
+                        <td> <a href="{% url 'core:peliculaUpdate' pelicula.id %}">Editar</a></td>
+                        <td> <a href="{% url 'core:peliculaDelete' pelicula.id %}">Eliminar</a></td>
+                        {%endif%}
+                        <td> <a href="{% url 'core:peliculaDetail' pelicula.id %}">Detalles</a></td>
 
                     </tr>
                 {% endfor %}

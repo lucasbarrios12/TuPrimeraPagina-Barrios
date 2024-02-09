@@ -8,10 +8,11 @@
                 <th>País</th>
             </thead>
             <tbody>
-                {% for director in directores %}
+                {% for director in object_list %}
                     <tr>
                         <td>{{ director.nombre }}</td>
                         <td>{{ director.pais }}</td>
+                        <td>{{ directo.pelicula }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

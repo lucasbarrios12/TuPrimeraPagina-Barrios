@@ -1,0 +1,93 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+<div class="m-5">
+    <h2>Directores</h2>
+
+    <div class="ms-5 mb-5">
+        <table class="table table-striped-columns w-25 p-3 ">
+            <thead>
+                <th>Nombre</th>
+                <th>País</th>
+            </thead>
+            <tbody>
+                {% for director in directores %}
+                    <tr>
+                        <td>{{ director.nombre }}</td>
+                        <td>{{ director.pais }}</td>
+                        {% if user.is_authenticated%}
+                            <td> <a href="{% url 'core:directorUpdate' director.id %}">Editar</a></td>
+                            <td> <a href="{% url 'core:directorDelete' director.id %}">Eliminar</a></td>
+                        {%endif%}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        
+        </table>
+    </div>
+
+    <h2>Actor</h2>
+
+    <div class="ms-5 mb-5">
+        <table class="table table-striped-columns w-25 p-3 ">
+            <thead>
+                <th>Nombre</th>
+                <th>Personaje</th>
+            </thead>
+            <tbody>
+                {% for protagonista in protagonistas %}
+                    <tr>
+                        <td>{{ protagonista.nombre }}</td>
+                        <td>{{ protagonista.nacionalidad }}</td>
+                        {% if user.is_authenticated%}
+                            <td> <a href="{% url 'core:protagonistaUpdate' protagonista.id %}">Editar</a></td>
+                            <td> <a href="{% url 'core:protagonistaDelete' protagonista.id %}">Eliminar</a></td>
+                        {%endif%}
+                    </tr>
+                    
+                {% endfor %}
+            </tbody>
+        
+        </table>
+    </div>
+
+    <h2>Pelicula</h2>
+
+    <div class="ms-5 mb-5">
+        <table class="table table-striped-columns w-25 p-3 ">
+            <thead>
+                <th>Nombre</th>
+                <th>Año</th>
+                <th>Protagonista</th>
+                <th>Director</th>
+            </thead>
+            <tbody>
+                {% for pelicula in peliculas %}
+                    <tr>
+                        <td>{{ pelicula.nombre }}</td>
+                        <td>{{ pelicula.año }}</td>
+                        <td>{{ pelicula.protagonista }}</td>
+                        <td>{{ pelicula.director }}</td>
+                        <td>{{ pelicula.personaje }}</td>
+
+                        
+                        {% if user.is_authenticated%}
+                            <td> <a href="{% url 'core:peliculaUpdate' pelicula.id %}">Editar</a></td>
+                            <td> <a href="{% url 'core:peliculaDelete' pelicula.id %}">Eliminar</a></td>
+                        {%endif%}
+                        <td> <a href="{% url 'core:peliculaDetail' pelicula.id %}">Detalles</a></td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        
+        </table>
+    </div>
+</div>
+
+
+
+
+
+{% endblock contenido %}

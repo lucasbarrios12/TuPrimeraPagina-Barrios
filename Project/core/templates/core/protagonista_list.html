@@ -8,10 +8,10 @@
                 <th>Personaje</th>
             </thead>
             <tbody>
-                {% for protagonista in protagonistas %}
+                {% for protagonista in object_list %}
                     <tr>
                         <td>{{ protagonista.nombre }}</td>
-                        <td>{{ protagonista.personaje }}</td>
+                        <td>{{ protagonista.nacionalidad }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

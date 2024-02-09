@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+    <form method="post">
+
+        {% csrf_token %}
+        {{ form }}
+    
+
+        <button type="submit">Registrarse</button>
+        <a href="{% url 'core:index' %} ">Cancelar</a>
+
+    </form>
+
+
+{% endblock contenido %}
