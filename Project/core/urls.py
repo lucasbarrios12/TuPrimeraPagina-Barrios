@@ -2,10 +2,14 @@ from django.urls import path
 from .views import *
 from django.contrib.auth.views import LogoutView
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = "core"
 
 urlpatterns = [
     path("", index, name="index"),
+    path("about/", about, name="about"),
     path("director/list", director_list.as_view(), name="director_list"),
     path("director/form", director_form.as_view(), name="director_form"),
     path("protagonista/list", protagonista_list.as_view(), name="protagonista_list"),
@@ -32,3 +36,5 @@ urlpatterns = [
 
 
 ]
+
+urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

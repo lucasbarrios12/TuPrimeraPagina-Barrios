@@ -9,6 +9,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def index(request):
     return render(request, "core/index.html")
 
+def about(request):
+    return render(request, "core/about.html")
+
 # Director
 
 # def director_list(request):
@@ -32,16 +35,16 @@ class director_list(ListView):
 class director_form(LoginRequiredMixin, CreateView):
     model = Director
     form_class = DirectorForm
-    success_url = reverse_lazy('core/director_list.html')
+    success_url = reverse_lazy('core:director_list')
 
 class directorUpdate(LoginRequiredMixin, UpdateView):
     model = Director
     form_class = DirectorForm
-    success_url = reverse_lazy('core/director_list.html')
+    success_url = reverse_lazy('core:director_list')
 
 class directorDelete(LoginRequiredMixin, DeleteView):
     model = Director
-    success_url = reverse_lazy('core/director_list')
+    success_url = reverse_lazy('core:director_list')
 
 # Protagonista
 
@@ -66,16 +69,16 @@ class protagonista_list(ListView):
 class protagonista_form(LoginRequiredMixin, CreateView):
     model = Protagonista
     form_class = ProtagonistaForm
-    success_url = reverse_lazy('core/protagonista_list')
+    success_url = reverse_lazy('core:protagonista_list')
 
 class protagonistaUpdate(LoginRequiredMixin, UpdateView):
     model = Protagonista
     form_class = ProtagonistaForm
-    success_url = reverse_lazy('core/protagonista_list')
+    success_url = reverse_lazy('core:protagonista_list')
 
 class protagonistaDelete(LoginRequiredMixin, DeleteView):
     model = Protagonista
-    success_url = reverse_lazy('core/protagonista_list')
+    success_url = reverse_lazy('core:protagonista_list')
 
 # Pelicula
 
@@ -100,17 +103,17 @@ class pelicula_list(ListView):
 class pelicula_form(LoginRequiredMixin, CreateView):
     model = Pelicula
     form_class = PeliculaForm
-    success_url = reverse_lazy('core/pelicula_list')
+    success_url = reverse_lazy('core:pelicula_list')
 
 
 class peliculaUpdate(LoginRequiredMixin, UpdateView):
     model = Pelicula
     form_class = PeliculaForm
-    success_url = reverse_lazy('core/pelicula_list')
+    success_url = reverse_lazy('core:pelicula_list')
 
 class peliculaDelete(LoginRequiredMixin, DeleteView):
     model = Pelicula
-    success_url = reverse_lazy('pelicula_list')
+    success_url = reverse_lazy('core:pelicula_list')
 
 class peliculaDetail(DetailView):
     model = Pelicula

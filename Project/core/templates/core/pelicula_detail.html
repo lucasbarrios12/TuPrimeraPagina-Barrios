@@ -1,11 +1,40 @@
 {% extends 'core/base.html' %}
 
 {% block contenido %}
+<div  class="container justify-content-md-center mt-5 mb-5">
+    <div class="row">
+        <div style="padding: 0;" class="col-2 row-cols-auto"><img style="height:15rem; width: 10rem;" src="{{object.imagen.url}}" alt=""></div>
+        <div class="col-4">
+            <div class="d-flex flex-column justify-content-center">
+                <div class="d-flex flex-row text-center">
+                    <h5>Nombre: </h5>
+                    <p class="ms-2"> {{object.nombre}}</p>
+                </div>
+                <div class="d-flex flex-row text-center">
+                    <h5>Año: </h5>
+                    <p class="ms-2">{{object.año}}</p>
+                </div>
+                <div class="d-flex flex-row text-center">
+                    <h5>Director:</h5>
+                    <p class="ms-2">{{object.director}}</p>
+                </div>
+                <div class="d-flex flex-row text-center">
+                    <h5>Protagonista:</h5>
+                    <p class="ms-2"> {{object.protagonista}}(<p style="font-size: 0.8rem; text-align: center;">{{object.personaje}}</p>)</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {{object.nombre}}
-    {{object.año}}
-    {{object.director}}
-    {{object.protagonista}}
+    <div class="row">
+        <div style="padding: 0;" class="col-6 w-75">
+            <p class="d-flex justify-content-center">{{object.resumen}}</p>
+        </div>
+        
+    </div>
+</div>
+
+    
 
 
 {% endblock contenido %}
